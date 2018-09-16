@@ -9,21 +9,35 @@
 
 </head>
 <body>
-    <div class="game-board">
-        <div class="box"></div>
-        <div class="box"></div>
-        <div class="box"></div>
-        <div class="box"></div>
-        <div class="box"></div>
-        <div class="box"></div>
-        <div class="box"></div>
-        <div class="box"></div>
-        <div class="box"></div>
-      </div>
+        <div class="wrapper">
+                <div class="message"></div>
+                <div class="container">
+                  <div class="box" id="box0"> </div>
+                  <div class="box" id="box1"> </div>
+                  <div class="box" id="box2"> </div>
+                  <div class="box" id="box3"> </div>
+                  <div class="box" id="box4"> </div>
+                  <div class="box" id="box5"> </div>
+                  <div class="box" id="box6"> </div>
+                  <div class="box" id="box7"> </div>
+                  <div class="box" id="box8"> </div>
+                </div>
+                <div class="gameInformation hidden">
+                  <h3 id="player1"></h3>
+                  <h3 id="player2"></h3>
+                  <button id="resetGame">Reset Game</button>
+                </div>
+                <div class="getPlayerInfo">
+                  <h2>Player 1 Name: </h2><input type="text" id="player1Name"></input>
+                  <h2>Player 2 Name: </h2><input type="text" id="player2Name"></input>
+                  <br>
+                  <button id="startGame">Start Game</button>
+                </div>
 
-      <div>
-        <button>RESET</button>
-      </div>
+              </div>
+    
+
+      
 
     <script src="js/main.js"></script>
 </body>

@@ -1,0 +1,33 @@
+
+.game-board {
+    display: grid;
+    grid-template-rows: 200px 200px 200px;
+    grid-template-columns: 200px 200px 200px;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  background-image: url("https://i.imgur.com/R8Zj0uP.png");
+  background-color: #cccccc;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+.box {
+  background: pink;
+  border: 1px solid rgb(223, 31, 175);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #AAA;
+}
+
+button {
+    position:absolute;
+    width: 100px; 
+    height: 100px;
+    color: red;
+    background-color: pink;
+    bottom:0px;
+}

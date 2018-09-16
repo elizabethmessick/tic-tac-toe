@@ -1,8 +1,27 @@
-var resetBtn;
 
 const container = document.querySelector('.container');
 
+/*----- constants -----*/
+
+
+/*----- app's state (variables) -----*/
+
+
+/*----- cached element references -----*/
+
+
+/*----- event listeners -----*/
+
+
+/*----- functions -----*/
+
+
+
+
+
+
 // -----  PERSON FACTORY  -----
+
 const personFactory = (name, marker, playerNumber) => {
   const displayPerson = () => {
     document.querySelector(`#player${playerNumber}`).innerText = `${name}, ${marker}`
@@ -132,38 +151,26 @@ const gameFactory = (player1, player2) => {
 
 
 
-// ----- RESET GAME -----
-function reset() {
-  //re-initilize variables 
-  gameOver = false; 
- 
-  //show board empty 
-}
+
 
 
 // ----- INIT GAME -----
 document.querySelector('#startGame').addEventListener('click', function() {
   const player1Name = document.querySelector('#player1Name').value
   const player2Name = document.querySelector('#player2Name').value
-  let player1 = personFactory(player1Name, "kisses", 1);
-  let player2 = personFactory(player2Name, "hugs", 2);
+  const heart = '<i class="fas fa-heart fa-2x"></i>';
+  const hug = '<i class="fas fa-hands fa-2x"></i>';
+  let player1 = personFactory(player1Name, heart, 1);
+  let player2 = personFactory(player2Name, hug, 2);
   gameFactory(player1, player2);
 })
-
-
-document.addEventListener("DOMContentLoaded", function() {
-  console.log("DOM loaded");
-
-  resetBtn = document.getElementById('resetGame');
-
-  resetBtn.addEventListener('click', reset);
-
-
-
-})
-
 
 
 //initilize game 
 //2 players click boxes 
 //once a box is clicked it can't be clicked again 
+
+//Reset game
+document.getElementById("resetGame").addEventListener("click", function(){
+    location.reload();
+});

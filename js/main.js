@@ -20,7 +20,7 @@ const container = document.querySelector('.container');
 
 //this variable is defined as a funciton and displays the person's name and which marker they are
 const personFactory = function(name, marker, playerNumber) {
-  const displayPerson = function() {
+const displayPerson = function() {
     document.querySelector(`#player${playerNumber}`).innerText = `${name}, ${marker}`
   };
   displayPerson();

@@ -15,7 +15,7 @@ body {
   flex-wrap: wrap;
   width: 600px;
   height: 600px;
-  border: 20px solid red;
+  border: 10px solid red;
   background-color: red;
 }
 
@@ -24,7 +24,7 @@ body {
   width: 28%;
   height: 28%;
   background-color: white;
-  margin: 3px;
+  margin: 10px;
   text-align: center;
 }
 
@@ -35,18 +35,19 @@ button {
   height: 50px;
   text-align:center
   float:left;
+  font-size: 15px; 
 }
 
 h1 {
-color: red;
-text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
-font-family: 'Ruslan Display', cursive;
-text-align:center
-}
+  color: yellow;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000; 
+  font-size: 45px;
+  text-align:center
+  }
 
 h2 {
 color: red;
-text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
+text-shadow: -2px 0 white, 0 2px white, 2px 0 white, 0 -2px white;
 text-align:center
 
 }
@@ -57,16 +58,27 @@ input {
   height: 30px; 
   border-color: black; 
   font-size: 20px; 
-  font-family: 'Ruslan Display', cursive;
-
+  text-align: center; 
 }
 
-#instructions {
-  background-color: black; 
-  color: white; 
-}
 
 .underBox {
   text-align:center
 
+}
+
+#startGame {
+  background-color: yellow;
+  color: black; 
+}
+
+#playerOne {
+  color: yellow;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000; 
+    text-align:center
+}
+
+#playerTwo {
+  color: red;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000; 
 }

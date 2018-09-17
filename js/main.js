@@ -1,48 +1,41 @@
+// START GAME 
+document.querySelector('#startGame').addEventListener('click', function() {
+  const player1Name = document.querySelector('#player1Name').value
+  const player2Name = document.querySelector('#player2Name').value
+  const music = '<i class="fas fa-music fa-5x"></i>';
+  const music1 = "Music sucks!"; 
+  let player1 = personFactory(player1Name, music, 1);
+  let player2 = personFactory(player2Name, music1, 2);
+  enterPlayerInfo(player1, player2);
+})
 
+
+//RESET GAME
+document.getElementById("resetGame").addEventListener("click", function(){
+    location.reload();
+});
+
+//this picks the container class which holds the game board. It is defined as the variable called container 
 const container = document.querySelector('.container');
 
-/*----- constants -----*/
-
-
-/*----- app's state (variables) -----*/
-
-
-/*----- cached element references -----*/
-
-
-/*----- event listeners -----*/
-
-
-/*----- functions -----*/
-
-
-
-
-
-
-// -----  PERSON FACTORY  -----
-
-const personFactory = (name, marker, playerNumber) => {
-  const displayPerson = () => {
+//this variable is defined as a funciton and displays the person's name and which marker they are
+const personFactory = function(name, marker, playerNumber) {
+  const displayPerson = function() {
     document.querySelector(`#player${playerNumber}`).innerText = `${name}, ${marker}`
   };
-
   displayPerson();
-  
   return { name, marker, displayPerson };
 };
 
 
-
-// -----  GAME FACTORY  -----
-const gameFactory = (player1, player2) => {
+//This variable is defined as a function and  for when users type in their names. The input boxes will disappear and the information will appear 
+  const enterPlayerInfo = function (player1, player2) {
   document.querySelector('.gameInformation').classList.remove('hidden');
   document.querySelector('.getPlayerInfo').classList.add('hidden')
-
   let currentPlayer = player1;
   let gameArray = Array(9).fill('');
 
-  // Checks if all items in array are the samef
+  // This checks if all of the indexes in the array are the same 
   Array.prototype.allSameValues = function() {
     if (this[0] === "") { return false; }
     for (let i = 1; i < this.length; i++) {
@@ -51,12 +44,12 @@ const gameFactory = (player1, player2) => {
     return true;
   }
 
-  const validChoice = (target) => {
+  const validChoice = function(target) {
     const targetIndex = target.id.slice(-1);
     return (gameArray[targetIndex] === "") ? true : false;
   }
 
-  const playerChoose = (currentPlayer, target) => {
+  const playerChoose = function(currentPlayer, target) {
     const targetIndex = target.id.slice(-1);
     const playerMarker = currentPlayer.marker;
     if (gameArray[targetIndex] === "") {
@@ -64,18 +57,18 @@ const gameFactory = (player1, player2) => {
     }
   }
 
-  const renderBoard = () => {
+  const renderBoard = function() {
     const boxes = document.querySelectorAll('.box')
     boxes.forEach(function(box, index) {
       box.innerHTML = `<p>${gameArray[index]}</p>`
     })
   };
 
-  const switchPlayer = (currentPlayer) => {
+  const switchPlayer = function(currentPlayer) {
     return (currentPlayer === player1) ? player2 : player1;
   };
 
-  const checkForTie = (gameArray) => {
+  const checkForTie = function(gameArray) {
     let tieGame = true;
     gameArray.forEach(function(position) {
       if (position === "") { tieGame = false; }
@@ -83,7 +76,8 @@ const gameFactory = (player1, player2) => {
     return tieGame;
   }
 
-  const checkForWin = (gameArray) => {
+  //this shows you all of the winning combinations in the array 
+  const checkForWin = function(gameArray) {
     let win = false;
 
     const winningCombos = [
@@ -97,7 +91,8 @@ const gameFactory = (player1, player2) => {
       [2, 4, 6]
     ];
 
-    winningCombos.forEach(arr => {
+    //this loops throught he winningCombos array and if they are all the same value, then that player wins 
+    winningCombos.forEach(function(arr) {
       const a = gameArray[arr[0]];
       const b = gameArray[arr[1]];
       const c = gameArray[arr[2]];
@@ -110,25 +105,28 @@ const gameFactory = (player1, player2) => {
     return win;
   }
 
-  const gameOver = player => {
+  const gameOver = function(player) {
     // If not passed ARG, tie game is displayed
     const messageAnchor = document.querySelector(".message")
     const gameInformation = document.querySelector('.gameInformation')
 
-    const changeScreen = (displayMessage) => {
+    const changeScreen = function(displayMessage) {
       container.style.display = 'none';
       gameInformation.style.display = 'none';
       messageAnchor.innerHTML = `<h1>${displayMessage}</h1>`
     }
 
-    const tieGame = () => { changeScreen("Neither of you are very good! Haha!"); }
+    const tieGame = function() { 
+      changeScreen("Neither of you are very good! Haha!"); 
+      }
 
-    const winner = () => { changeScreen(`${player.name} wins!`); }
+    const winner = function() {
+       changeScreen(`${player.name} wins!`); }
     
     player === undefined ? tieGame() : winner()
   }
 
-  container.addEventListener('click', (event) => {
+  container.addEventListener('click', function(event) {
     const target = event.target;
     if (target.className === "box") {
       let valid = validChoice(target)
@@ -154,23 +152,3 @@ const gameFactory = (player1, player2) => {
 
 
 
-// ----- INIT GAME -----
-document.querySelector('#startGame').addEventListener('click', function() {
-  const player1Name = document.querySelector('#player1Name').value
-  const player2Name = document.querySelector('#player2Name').value
-  const heart = '<i class="fas fa-heart fa-2x"></i>';
-  const hug = '<i class="fas fa-hands fa-2x"></i>';
-  let player1 = personFactory(player1Name, heart, 1);
-  let player2 = personFactory(player2Name, hug, 2);
-  gameFactory(player1, player2);
-})
-
-
-//initilize game 
-//2 players click boxes 
-//once a box is clicked it can't be clicked again 
-
-//Reset game
-document.getElementById("resetGame").addEventListener("click", function(){
-    location.reload();
-});

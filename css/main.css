@@ -1,52 +1,22 @@
-
-/*.container {
-    display: grid;
-    grid-template-rows: 200px 200px 200px;
-    grid-template-columns: 200px 200px 200px;
-}
-
 body {
   display: flex;
   justify-content: center;
-  background-image: url("https://i.imgur.com/R8Zj0uP.png");
-  background-color: #cccccc;
   background-size: cover;
   background-attachment: fixed;
+  background-image: url("../images/music.png");
 }
-
-
-
-.box {
-  background: pink;
-  border: 1px solid rgb(223, 31, 175);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #AAA;
-} 
-
-button {
-    position:absolute;
-    width: 100px; 
-    height: 100px;
-    color: red;
-    background-color: pink;
-    bottom:0px;
-} */
 
 .hidden {
   display: none;
 }
 
-
-
 .container {
   display: flex;
   flex-wrap: wrap;
-  width: 200px;
-  height: 200px;
-  border: 1px solid red;
-  background-color: pink;
+  width: 600px;
+  height: 600px;
+  border: 20px solid red;
+  background-color: red;
 }
 
 .box {
@@ -56,4 +26,47 @@ button {
   background-color: white;
   margin: 3px;
   text-align: center;
+}
+
+button {
+  background-color: red;
+  color: white; 
+  width: 100px; 
+  height: 50px;
+  text-align:center
+  float:left;
+}
+
+h1 {
+color: red;
+text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
+font-family: 'Ruslan Display', cursive;
+text-align:center
+}
+
+h2 {
+color: red;
+text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
+text-align:center
+
+}
+
+input {
+  border-width: thick; 
+  width: 200px;
+  height: 30px; 
+  border-color: black; 
+  font-size: 20px; 
+  font-family: 'Ruslan Display', cursive;
+
+}
+
+#instructions {
+  background-color: black; 
+  color: white; 
+}
+
+.underBox {
+  text-align:center
+
 }
